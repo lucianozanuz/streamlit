@@ -38,14 +38,14 @@ if st.checkbox('Show dataframe'):
 
     st.line_chart(df[column])
     
-    df = pd.DataFrame(
+    df2 = pd.DataFrame(
         np.random.randn(20, 3),
         columns=['a', 'b', 'c'])
 
     columns = st.multiselect(
         label='What column to you want to display', options=df.columns)
 
-    st.line_chart(df[columns])
+    st.line_chart(df2[columns])
     
     
     map_data = pd.DataFrame(
