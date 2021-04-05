@@ -7,7 +7,9 @@ st.title('My first app')
 # Add some text
 st.text('Streamlit is great')
 
-if st.checkbox('Show dataframe'):
+
+if st.checkbox('Show dataframe'):  
+    
     st.dataframe(pd.DataFrame({
         'first column': [1, 2, 3, 4],
         'second column': [10, 20, 30, 40]
@@ -18,6 +20,22 @@ if st.checkbox('Show dataframe'):
         'second column': [10, 20, 30, 40]
     }))
 
+    
+    
+    
+    df = pd.DataFrame(
+        np.random.randn(20, 3),
+        columns=['a', 'b', 'c'])
+
+    column = st.selectbox(
+        'What column to you want to display',
+         df.columns)
+
+    st.line_chart(df[column])
+    
+    
+    
+    
     chart_data = pd.DataFrame(
         np.random.randn(20, 3),
         columns=['a', 'b', 'c'])
