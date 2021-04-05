@@ -20,9 +20,14 @@ if st.checkbox('Show dataframe'):
         'second column': [10, 20, 30, 40]
     }))
 
+    chart_data = pd.DataFrame(
+        np.random.randn(20, 3),
+        columns=['a', 'b', 'c'])
+
+    st.line_chart(chart_data)
+
     
-    
-    
+        
     df = pd.DataFrame(
         np.random.randn(20, 3),
         columns=['a', 'b', 'c'])
@@ -33,15 +38,16 @@ if st.checkbox('Show dataframe'):
 
     st.line_chart(df[column])
     
-    
-    
-    
-    chart_data = pd.DataFrame(
+    df = pd.DataFrame(
         np.random.randn(20, 3),
         columns=['a', 'b', 'c'])
 
-    st.line_chart(chart_data)
+    columns = st.multiselect(
+        label='What column to you want to display', options=df.columns)
 
+    st.line_chart(df[columns])
+    
+    
     map_data = pd.DataFrame(
         np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
         columns=['lat', 'lon'])
