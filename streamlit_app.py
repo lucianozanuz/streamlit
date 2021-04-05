@@ -53,3 +53,18 @@ if st.checkbox('Show dataframe'):
         columns=['lat', 'lon'])
 
     st.map(map_data)
+
+x = st.slider('Select a value')
+st.write(x, 'squared is', x * x)
+
+@st.cache
+def fetch_and_clean_data():
+    df = pd.read_csv('<some csv>')
+    # do some cleaning
+    return df
+
+# Add a slider to the sidebar:
+add_slider = st.sidebar.slider(
+    'Select a range of values',
+    0.0, 100.0, (25.0, 75.0)
+)
